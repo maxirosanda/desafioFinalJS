@@ -48,15 +48,19 @@ const signUp = () => {
       signUp.reset()
       showMessage("Bienvenido " + userCredential.user.email);
     }catch(e){
-      if (e.code === 'auth/email-already-in-use') {
-        showMessage("Email ya fue usado", "error")
-      } else if (e.code === 'auth/invalid-email') {
-        showMessage("Email invalido", "error")
-      } else if (e.code === 'auth/weak-password') {
-        showMessage("Weak password", "error")
-      } else if (e.code) {
-        showMessage("Algo salió mal", "error")
-        console.log(e)
+
+      switch(e.code){
+        case 'auth/email-already-in-use' :
+          showMessage("Email ya fue usado", "error")
+          break
+        case 'auth/invalid-email':
+          showMessage("Email invalido", "error")
+          break
+        case 'auth/weak-password':
+          showMessage("Password debil", "error")
+          break
+        default:
+          showMessage("Algo salió mal", "error")
       }
     }
   
@@ -82,12 +86,15 @@ const signIn = (e) => {
       signIn.reset();
       showMessage("Hola " + userCredential.user.email);
     }catch(e){
-      if (e.code === 'auth/wrong-password') {
-        showMessage("Password incorrecto", "error")
-      } else if (e === 'auth/user-not-found') {
-        showMessage("Usuario no encontrado", "error")
-      } else {
-        showMessage("Algo salió mal", "error")
+      switch(e.code){
+        case 'auth/wrong-password':
+          showMessage("Password incorrecto", "error")
+          break
+        case 'auth/user-not-found':
+          showMessage("Usuario no encontrado", "error")
+          break
+        default:
+          showMessage("Algo salió mal", "error")
       }
     }
 
