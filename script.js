@@ -49,13 +49,13 @@ const signUp = () => {
       showMessage("Bienvenido " + userCredential.user.email);
     }catch(e){
       if (e.code === 'auth/email-already-in-use') {
-        showMessage("Email already in use", "error")
+        showMessage("Email ya fue usado", "error")
       } else if (e.code === 'auth/invalid-email') {
-        showMessage("Invalid email", "error")
+        showMessage("Email invalido", "error")
       } else if (e.code === 'auth/weak-password') {
         showMessage("Weak password", "error")
       } else if (e.code) {
-        showMessage("Something went wrong", "error")
+        showMessage("Algo salió mal", "error")
         console.log(e)
       }
     }
@@ -83,11 +83,11 @@ const signIn = (e) => {
       showMessage("Hola " + userCredential.user.email);
     }catch(e){
       if (e.code === 'auth/wrong-password') {
-        showMessage("Wrong password", "error")
+        showMessage("Password incorrecto", "error")
       } else if (e === 'auth/user-not-found') {
-        showMessage("User not found", "error")
+        showMessage("Usuario no encontrado", "error")
       } else {
-        showMessage("Something went wrong", "error")
+        showMessage("Algo salió mal", "error")
       }
     }
 
