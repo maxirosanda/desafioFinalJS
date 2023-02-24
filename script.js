@@ -303,8 +303,9 @@ signUp()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     (id != undefined)?productEdit(id):productsView();productCreate()
+   
   } else {
-    body.style.background = "#fff"
+    console.log("usuario no logeado")
   }
 });
 
