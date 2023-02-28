@@ -74,7 +74,7 @@ const signUp = () => {
       const modal = bootstrap.Modal.getInstance(signupModal.closest('.modal'));
       modal.hide();
       signUp.reset()
-      document.location = './crear.html'
+      document.location = './crear.html#productos'
       showMessage("Bienvenido " + user.email);
     }catch(e){
 
@@ -112,7 +112,7 @@ const signIn = (e) => {
       const modal = bootstrap.Modal.getInstance(signinModal.closest('.modal'))
       modal.hide()
       signIn.reset()
-      document.location = './crear.html'
+      document.location = './crear.html#productos'
       showMessage("Hola " + user.email)
     }catch(e){
       switch(e.code){
@@ -139,7 +139,7 @@ const logOut = () => {
       await signOut(auth)
       showMessage("Chau")
       setTimeout(()=>{
-        document.location = './index.html#inicio'
+        document.location = './index.html'
       },1000)
     
     }catch(e){
@@ -237,7 +237,7 @@ const productUpdate = id => {
       await updateDoc(doc(db, "products",id),product)
       showMessage("Se a actualizado un producto")
       setTimeout(()=>{
-        document.location = './index.html#inicio'
+        document.location = './crear.html#productos'
       },2000)
     } catch (e) {
       showAlert('Error!','No se pudo actualizar el producto',"error")
@@ -254,7 +254,7 @@ const productDelete = (id) => {
       await deleteObject(ref(storage,`product-${id}`))
       showMessage("Se aliminado un producto")
       setTimeout(()=>{
-        document.location = './index.html#inicio'
+        document.location = './crear.html#productos'
       },2000)   
     } catch (e) {
       showAlert('Error!','No se pudo eliminar el producto',"error")
@@ -277,18 +277,14 @@ logOut()
 signUp()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    switch(id){
-      case undefined:
-        productsView()
-        productCreate()
-        break
-      case "inicio":
-        break  
-      default:
-        productEdit(id)
+    if(id == "productos"){
+      productsView()
+      productCreate()
+      console.log(id)
+    }else if (id){
+      productEdit(id)
+      console.log("fgg")
     }
-  }else{
-    document.location = './index.html#inicio'
   }
 })
 
