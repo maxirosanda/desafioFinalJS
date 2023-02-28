@@ -237,7 +237,7 @@ const productUpdate = id => {
       await updateDoc(doc(db, "products",id),product)
       showMessage("Se a actualizado un producto")
       setTimeout(()=>{
-        document.location = './index.html'
+        document.location = './index.html#inicio'
       },2000)
     } catch (e) {
       showAlert('Error!','No se pudo actualizar el producto',"error")
@@ -254,7 +254,7 @@ const productDelete = (id) => {
       await deleteObject(ref(storage,`product-${id}`))
       showMessage("Se aliminado un producto")
       setTimeout(()=>{
-        document.location = './index.html'
+        document.location = './index.html#inicio'
       },2000)   
     } catch (e) {
       showAlert('Error!','No se pudo eliminar el producto',"error")
