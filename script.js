@@ -74,6 +74,7 @@ const signUp = () => {
       const modal = bootstrap.Modal.getInstance(signupModal.closest('.modal'));
       modal.hide();
       signUp.reset()
+      document.location = './crear.html'
       showMessage("Bienvenido " + user.email);
     }catch(e){
 
@@ -111,6 +112,7 @@ const signIn = (e) => {
       const modal = bootstrap.Modal.getInstance(signinModal.closest('.modal'))
       modal.hide()
       signIn.reset()
+      document.location = './crear.html'
       showMessage("Hola " + user.email)
     }catch(e){
       switch(e.code){
@@ -137,7 +139,7 @@ const logOut = () => {
       await signOut(auth)
       showMessage("Chau")
       setTimeout(()=>{
-        document.location = './index.html'
+        document.location = './index.html#inicio'
       },1000)
     
     }catch(e){
@@ -275,8 +277,19 @@ logOut()
 signUp()
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    (id != undefined)?productEdit(id):productsView();productCreate()
-  } 
+    switch(id){
+      case undefined:
+        productsView()
+        productCreate()
+        break
+      case "inicio":
+        break  
+      default:
+        productEdit(id)
+    }
+  }else{
+    document.location = './index.html#inicio'
+  }
 })
 
 
