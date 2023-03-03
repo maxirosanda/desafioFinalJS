@@ -37,7 +37,7 @@
       </div>
       <div class="modal-body p-5">
         <form action="" id="signUp">
-          <input type="email" name="email" id="signUpEmail" class="form-control mb-3" placeholder="Title"  required>
+          <input type="email" name="email" id="signUpEmail" class="form-control mb-3" placeholder="Email"  required>
           <input type="password" name="password" id="signUpPassword" class="form-control mb-3" placeholder="Password" required>
           <button type="submit" class="btn btn-primary">Registrarme</button>
       </form>
@@ -55,8 +55,8 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" id="signIn">
-          <input type="email" name="email" id="signInEmail" class="form-control mb-3" placeholder="Title"  required>
+        <form action="" id="signIn" class="">
+          <input type="email" name="email" id="signInEmail" class="form-control mb-3" placeholder="Email"  required>
           <input type="password" name="password" id="signInPassword" class="form-control mb-3" placeholder="Password" required>
           <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
@@ -66,7 +66,9 @@
 </div>
     </header>
     <main id="main">
-    <h1>ingrese o registrese como usuario</h1>
+      <div class="alert alert-primary" role="alert">
+        Ingrese o registre un usuario
+      </div>
   </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

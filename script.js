@@ -162,16 +162,18 @@ const inputs = (datos)=>{
 const productView = (product) =>{
   const div = document.createElement("div")
   div.innerHTML = `
-    <form id="update-${product.id}" class="form">
-      <img src="${product.imgURL}" class="img">
-      <input type="text" name="name" value="${product.name}" disabled>
-      <textarea name="desc" disabled>${product.desc}</textarea>
-      <div>
-        <input type="number" name="price" value=${product.price} disabled>
-        <input type="number" name="stock" value=${product.stock} min="1" max="100" disabled>
+    <div class="card" style="width: 18rem;">
+      <img src="${product.imgURL}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${product.name}</h5>
+        <p class="card-text">${product.desc}</p>
+        <div class="d-flex justify-content-around">
+          <p class="card-text"><b>Stock:</b> ${product.stock}</p>
+          <p class="card-text"><b>Precio:</b> ${product.price}$</p>
+        </div>
+        <a type="button" class="btn btn-primary" href=./editar.html#${product.id}>Editar</a>
       </div>
-      <a type="button" class="btn" href=./editar.html#${product.id}>Editar</a>
-    </form>`
+    </div>`
   list.append(div)
 }
 
@@ -192,17 +194,17 @@ const editView = (product ,id)=>{
   div.innerHTML = `
     <form id="update-${id}" class="form">
       <img src="${product.imgURL}" class="img">
-      <input type="text" name="name" value="${product.name}" required>
-      <textarea name="desc" required>${product.desc}</textarea>
+      <input type="text" class="form-control" name="name" value="${product.name}" required>
+      <textarea name="desc" class="form-control"  required>${product.desc}</textarea>
       <div>
-        <input type="number" name="price" value=${product.price} required>
-        <input type="number" name="stock" value=${product.stock} min="1" max="100" required>
+        <input type="number" class="form-control"  name="price" value=${product.price} required>
+        <input type="number" class="form-control"  name="stock" value=${product.stock} min="1" max="100" required>
       </div>
-      <input type="file" name="image" >
-      <button type="submit">Actualizar</button>
+      <input type="file" name="image" class="form-control"  >
+      <button class="btn btn-primary mb-3" type="submit">Actualizar</button>
     </form>
     <form id="delete-${id}"  class="form">
-      <button type="submit">Borrar</button>
+      <button class="btn btn-primary" type="submit">Borrar</button>
     </form>
   `
 }
