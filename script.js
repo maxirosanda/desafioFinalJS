@@ -194,8 +194,8 @@ const editView = (product ,id)=>{
   div.innerHTML = `
     <form id="update-${id}" class="form">
       <img src="${product.imgURL}" class="img">
-      <input type="text" class="form-control" name="name" value="${product.name}" required>
-      <textarea name="desc" class="form-control"  required>${product.desc}</textarea>
+      <input type="text" class="form-control" minlength="15" maxlength="66" name="name" value="${product.name}" required>
+      <textarea name="desc" class="form-control" minlength="100" maxlength="221"  required>${product.desc}</textarea>
       <div>
         <input type="number" class="form-control"  name="price" value=${product.price} required>
         <input type="number" class="form-control"  name="stock" value=${product.stock} min="1" max="100" required>

@@ -67,8 +67,8 @@
     </header>
     <main id="main">
     <form id="create" class="form mt-5">
-      <input type="text" name="name" class="form-control" placeholder="Ingrese nombre del producto" required>
-      <textarea name="desc" class="form-control" placeholder="Ingrese descripcion del producto" required></textarea>
+      <input type="text" name="name" class="form-control"  minlength="15" maxlength="66" placeholder="Ingrese nombre del producto" required>
+      <textarea name="desc" class="form-control" placeholder="Ingrese descripcion del producto" minlength="100" maxlength="221" required></textarea>
       <div>
         <input type="number" class="form-control" name="price" placeholder="Precio" required>
         <input type="number" class="form-control" name="stock" placeholder="stock" min="1" max="100" required>
